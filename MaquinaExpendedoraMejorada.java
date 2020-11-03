@@ -89,10 +89,7 @@ public class MaquinaExpendedoraMejorada {
      * Imprime un billete para el cliente actual
      */
     public void imprimirBillete() {
-        int cantidadDeDineroQueFalta;
-        double descuentoPremio = 0.10;
-        double descuentoTotal = 0;
-        
+        int cantidadDeDineroQueFalta;        
         cantidadDeDineroQueFalta = precioBillete - balanceClienteActual;
         if (cantidadDeDineroQueFalta <= 0) {        
             // Simula la impresion de un billete
@@ -109,7 +106,9 @@ public class MaquinaExpendedoraMejorada {
             balanceClienteActual = balanceClienteActual - precioBillete;
             //contador billetes
             vendidos++;
-                if (premio == true) {
+            if (premio == true) {
+                double descuentoPremio = 0.10;
+                double descuentoTotal = 0;
                 descuentoTotal = ((precioBillete*descuentoPremio)/100);
                 System.out.println("¡PREMIO del 10%!: te regalamos " + descuentoTotal + " € para gastar en el bar del Tío Paco");
             }
