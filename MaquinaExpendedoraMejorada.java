@@ -72,13 +72,14 @@ public class MaquinaExpendedoraMejorada {
      * imprime la cantidad de billetes vendidos
      */
     public void imprimirVendidos() {
-        System.out.println("##################");
-        System.out.println("# nº de billetes vendidos:");
-        System.out.println("# " + vendidos);
-        System.out.println("##################");
-        System.out.println();
+        System.out.println("# nº de billetes vendidos: " + vendidos);
     }
-    
+    /**
+     * contadorde billetes
+     */
+    public int getNumeroBilletesVendidos() {
+        return vendidos;
+    }
     /**
      * Imprime un billete para el cliente actual
      */
