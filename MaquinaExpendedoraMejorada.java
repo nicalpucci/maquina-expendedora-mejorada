@@ -14,13 +14,15 @@ public class MaquinaExpendedoraMejorada {
     private int vendidos;
     //maquina con premios
     private boolean premio;
+    //maximo de billetes a la venta
+    private int maxBilletes;
 
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
      * del billete que se recibe es mayor que 0.
      */
-    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino, boolean premioGanado) {
+    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino, boolean premioGanado, int maxDeBilletes) {
         precioBillete = precioDelBillete;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
@@ -28,6 +30,7 @@ public class MaquinaExpendedoraMejorada {
         estacionDestino = destino;
         vendidos = 0;
         premio = premioGanado;
+        maxBilletes = maxDeBilletes;
     }
 
     /**
@@ -48,7 +51,7 @@ public class MaquinaExpendedoraMejorada {
      * Simula la introduccion de dinero por parte del cliente actual
      */
     public void introducirDinero(int cantidadIntroducida) {
-        if (vendidos < 2) {
+        if (vendidos < maxBilletes) {
             if (cantidadIntroducida > 0) {
                 balanceClienteActual = balanceClienteActual + cantidadIntroducida;
             }
@@ -96,7 +99,7 @@ public class MaquinaExpendedoraMejorada {
     public void imprimirBillete() {
         int cantidadDeDineroQueFalta;        
         cantidadDeDineroQueFalta = precioBillete - balanceClienteActual;
-        if (vendidos < 2) {
+        if (vendidos < maxBilletes) {
             if (cantidadDeDineroQueFalta <= 0) {        
                 // Simula la impresion de un billete
                 System.out.println("##################");
@@ -120,7 +123,7 @@ public class MaquinaExpendedoraMejorada {
                 }
             }
         }
-        else if(vendidos >= 2){
+        else if(vendidos >= maxBilletes){
             System.out.println("ERROR: Máximo de billetes vendidos");        
         }
         else {
