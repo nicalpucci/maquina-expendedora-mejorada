@@ -63,7 +63,7 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("ERROR: Máximo de billetes vendidos");
         }
     }
-    
+
     /**
      * vaciar dinero maquina
      */
@@ -78,21 +78,21 @@ public class MaquinaExpendedoraMejorada {
         }
         return valorADevolver;
     }
-    
+
     /**
      * imprime la cantidad de billetes vendidos
      */
     public void imprimirVendidos() {
         System.out.println("# nº de billetes vendidos: " + vendidos);
     }
-    
+
     /**
      * contadorde billetes
      */
     public int getNumeroBilletesVendidos() {
         return vendidos;
     }
-    
+
     /**
      * Imprime un billete para el cliente actual
      */
@@ -108,38 +108,38 @@ public class MaquinaExpendedoraMejorada {
                 System.out.println("# " + precioBillete + " euros.");
                 System.out.println("##################");
                 System.out.println();         
-    
+
                 // Actualiza el total de dinero acumulado en la maquina
                 totalDineroAcumulado = totalDineroAcumulado + precioBillete;
                 // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
                 balanceClienteActual = balanceClienteActual - precioBillete;
                 //contador billetes
                 vendidos++;
-                    if (premio == true) {
+                if (premio == true) {
                     double descuentoPremio = 0.10;
                     double descuentoTotal = 0;
                     descuentoTotal = ((precioBillete*descuentoPremio)/100);
                     System.out.println("¡PREMIO del 10%!: te regalamos " + descuentoTotal + " € para gastar en el bar del Tío Paco");
                 }
-                
-            else {
-                    System.out.println("Necesitas introducir " + cantidadDeDineroQueFalta + " € mas!");
-                }
             }
-            else if(vendidos >= maxBilletes){
+            else {
+                System.out.println("Necesitas introducir " + cantidadDeDineroQueFalta + " € mas!");
+            }
+        }
+        else {
             System.out.println("ERROR: Máximo de billetes vendidos");        
         }    
     }
 }
 
-    /**
-     * Cancela la operacion de compra del cliente actual y le
-     * devuelve al cliente el dinero que ha introducido hasta el momento
-     */
-    public int cancelarOperacionYDevolverDinero() {
-        int cantidadDeDineroADevolver;
-        cantidadDeDineroADevolver = balanceClienteActual;
-        balanceClienteActual = 0;
-        return cantidadDeDineroADevolver;
-    } 
+/**
+ * Cancela la operacion de compra del cliente actual y le
+ * devuelve al cliente el dinero que ha introducido hasta el momento
+ */
+public int cancelarOperacionYDevolverDinero() {
+int cantidadDeDineroADevolver;
+cantidadDeDineroADevolver = balanceClienteActual;
+balanceClienteActual = 0;
+return cantidadDeDineroADevolver;
+} 
 }
