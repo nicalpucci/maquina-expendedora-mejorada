@@ -46,7 +46,7 @@ public class MaquinaExpendedoraMejorada {
     public int getBalanceClienteActual() {
         return balanceClienteActual;
     }
-
+    
     /**
      * Simula la introduccion de dinero por parte del cliente actual
      */
@@ -92,7 +92,7 @@ public class MaquinaExpendedoraMejorada {
     public int getNumeroBilletesVendidos() {
         return vendidos;
     }
-
+ 
     /**
      * Imprime un billete para el cliente actual
      */
@@ -116,10 +116,12 @@ public class MaquinaExpendedoraMejorada {
                 //contador billetes
                 vendidos++;
                 if (premio == true) {
-                    double descuentoPremio = 0.10;
-                    double descuentoTotal = 0;
-                    descuentoTotal = ((precioBillete*descuentoPremio)/100);
-                    System.out.println("¡PREMIO del 10%!: te regalamos " + descuentoTotal + " € para gastar en el bar del Tío Paco");
+                    if (vendidos % 3 == 0) {
+                        double descuentoPremio = 0.10;
+                        double descuentoTotal = 0;
+                        descuentoTotal = (precioBillete*descuentoPremio);
+                        System.out.println("¡PREMIO del 10%!: te regalamos " + descuentoTotal + " € para gastar en el bar del Tío Paco");
+                    }
                 }
             }
             else {
@@ -130,16 +132,16 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("ERROR: Máximo de billetes vendidos");        
         }    
     }
-}
 
-/**
- * Cancela la operacion de compra del cliente actual y le
- * devuelve al cliente el dinero que ha introducido hasta el momento
- */
-public int cancelarOperacionYDevolverDinero() {
-int cantidadDeDineroADevolver;
-cantidadDeDineroADevolver = balanceClienteActual;
-balanceClienteActual = 0;
-return cantidadDeDineroADevolver;
-} 
+
+    /**
+     * Cancela la operacion de compra del cliente actual y le
+     * devuelve al cliente el dinero que ha introducido hasta el momento
+     */
+    public int cancelarOperacionYDevolverDinero() {
+         int cantidadDeDineroADevolver;
+            cantidadDeDineroADevolver = balanceClienteActual;
+            balanceClienteActual = 0;
+        return cantidadDeDineroADevolver;
+    }
 }
