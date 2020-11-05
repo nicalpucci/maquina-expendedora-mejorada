@@ -115,21 +115,22 @@ public class MaquinaExpendedoraMejorada {
                 balanceClienteActual = balanceClienteActual - precioBillete;
                 //contador billetes
                 vendidos++;
-                if (premio == true) {
+                    if (premio == true) {
                     double descuentoPremio = 0.10;
                     double descuentoTotal = 0;
                     descuentoTotal = ((precioBillete*descuentoPremio)/100);
                     System.out.println("¡PREMIO del 10%!: te regalamos " + descuentoTotal + " € para gastar en el bar del Tío Paco");
                 }
+                
+            else {
+                    System.out.println("Necesitas introducir " + cantidadDeDineroQueFalta + " € mas!");
+                }
             }
-        }
-        else if(vendidos >= maxBilletes){
+            else if(vendidos >= maxBilletes){
             System.out.println("ERROR: Máximo de billetes vendidos");        
-        }
-        else {
-            System.out.println("Necesitas introducir " + cantidadDeDineroQueFalta + " € mas!");
         }    
     }
+}
 
     /**
      * Cancela la operacion de compra del cliente actual y le
